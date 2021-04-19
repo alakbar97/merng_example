@@ -3,28 +3,6 @@ import { Grid } from "semantic-ui-react";
 
 import PostCard from "../components/PostCard";
 
-const FETCH_POSTS = gql`
-  {
-    posts: getPosts {
-      id
-      body
-      createdAt
-      username
-      likeCount
-      commentCount
-      likes {
-        username
-      }
-      comments {
-        id
-        username
-        createdAt
-        body
-      }
-    }
-  }
-`;
-
 const Home = () => {
   const { loading, data } = useQuery(FETCH_POSTS);
 
@@ -48,5 +26,27 @@ const Home = () => {
     </Grid>
   );
 };
+
+const FETCH_POSTS = gql`
+  {
+    posts: getPosts {
+      id
+      body
+      createdAt
+      username
+      likeCount
+      commentCount
+      likes {
+        username
+      }
+      comments {
+        id
+        username
+        createdAt
+        body
+      }
+    }
+  }
+`;
 
 export default Home;

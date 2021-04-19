@@ -4,6 +4,8 @@ import {
   createHttpLink,
   ApolloProvider,
 } from "@apollo/client";
+
+import { AuthProvider } from "./context/auth";
 import App from "./App";
 
 const httpLink = createHttpLink({
@@ -17,6 +19,8 @@ const client = new ApolloClient({
 
 export default (
   <ApolloProvider client={client}>
-    <App />
+    <AuthProvider>
+      <App />
+    </AuthProvider>
   </ApolloProvider>
 );

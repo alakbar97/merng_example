@@ -6,6 +6,8 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import MenuBar from "./components/MenuBar";
 
+import AuthRoute from "./utils/AuthRoute";
+
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
@@ -15,8 +17,8 @@ function App() {
       <Container>
         <MenuBar />
         <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
+        <AuthRoute exact path="/login" component={Login} />
+        <AuthRoute exact path="/register" component={Register} />
       </Container>
     </Router>
   );
