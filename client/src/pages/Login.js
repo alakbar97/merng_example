@@ -1,9 +1,10 @@
 import { useState, useContext } from "react";
 import { Form, Button } from "semantic-ui-react";
-import { useMutation, gql } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 
 import { AuthContext } from "../context/auth";
 import { useForm } from "../utils/hooks";
+import { LOGIN_USER } from "../utils/graphql";
 
 const Login = ({ history }) => {
   const [errors, setErrors] = useState({});
@@ -64,17 +65,5 @@ const Login = ({ history }) => {
     </div>
   );
 };
-
-const LOGIN_USER = gql`
-  mutation login($username: String!, $password: String!) {
-    login(username: $username, password: $password) {
-      id
-      email
-      username
-      createdAt
-      token
-    }
-  }
-`;
 
 export default Login;
